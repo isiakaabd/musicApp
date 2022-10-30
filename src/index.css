@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Quicksand";
+  }
+}
+@layer base {
+  svg {
+    cursor: pointer;
+  }
+}
+@layer components {
+  .dark-bg {
+    @apply transition duration-500 bg-dark w-[52px] flex flex-col rounded-full  items-center py-[25px] gap-[20px];
+  }
+}
+@layer components {
+  .card {
+    background-color: theme("colors.lightGreen");
+    border-radius: 40px;
+    box-shadow: theme("boxShadow.xl");
+  }
+}
