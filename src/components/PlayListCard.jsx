@@ -2,8 +2,8 @@ import { ReactComponent as Heart } from "./../assets/images/Heart.svg";
 import contacts from "./../assets/images/Frame.png";
 const PlayListCard = () => {
   return (
-    <div className="card flex-auto flex w-64 bg-person bg-contain bg-no-repeat bg-right">
-      <div className="flex-1  flex  flex-col gap-10 p-8">
+    <div className="card flex-auto flex w-64 sm:flex-col bg-person bg-contain bg-no-repeat bg-right">
+      <div className="flex-1  flex  flex-col gap-10 p-8 md:max-w-[50%]">
         <p className="font-normal  text-sm">Curated playlist</p>
         <div className="my-8">
           <p className="text-[35px] font-bold">R & B Hits</p>
@@ -18,7 +18,7 @@ const PlayListCard = () => {
           <p className="text-sm">33k Likes</p>
         </div>
       </div>
-      <div className="flex-1 "></div>
+      {/* <div className="flex-1 "></div> */}
     </div>
   );
 };

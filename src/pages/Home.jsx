@@ -1,15 +1,21 @@
-import SearchBar from "../components/SearchBar";
 import photo from "./../assets/images/photo1.png";
-import PlayListCard from "../components/PlayListCard";
-import TopChartCard from "../components/TopChartCard";
-import Sidebar from "../components/Sidebar";
+import {
+  PlayListCard,
+  SearchBar,
+  TopChartCard,
+  Sidebar,
+  Search,
+  Release,
+  Footer,
+} from "../components";
+
 const Home = () => {
   return (
-    <div className="flex gap-4 mr-12">
+    <div className="flex gap-4 md:mr-12 p-[30px]">
       <Sidebar />
-      <div className="flex flex-col gap-4 flex-1">
+      <div className="flex flex-col gap-4 relative w-full">
         <SearchBar />
-        <div className=" flex  gap-8 text-white flex-wrap ">
+        <div className=" flex flex-wrap md:flex-nowrap gap-8 text-white ">
           <PlayListCard />
 
           <div className=" flex-auto w-28 ">
@@ -34,6 +40,10 @@ const Home = () => {
             </div>
           </div>
         </div>
+        {/* release */}
+        <Release />
+        <Search />
+        <Footer />
       </div>
     </div>
   );

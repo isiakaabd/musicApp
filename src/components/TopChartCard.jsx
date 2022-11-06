@@ -4,11 +4,11 @@ const TopChartCard = ({ image, text, subTitle, timeStamp }) => {
   return (
     <div className=" whitespace-nowrap text-white bg-dark flex justify-between p-4 rounded-lg">
       <div className="flex gap-4 w-[63px] aspect-square">
-        <div className="rounded-2xl bg-main h-full  border-dark  aspect-square  border ">
+        <div className=" bg-main h-full    aspect-square  ">
           <img
             src={image}
             alt={`image of ${text}`}
-            className=" object-contain max-h-full"
+            className=" object-contain max-h-full border-solid border border-main rounded-[10px]"
           />
         </div>
         <div className="flex text-xs font-normal flex-col gap-1">
