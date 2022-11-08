@@ -1,11 +1,11 @@
 import photo from "./../assets/images/AlbumCard.png";
 const Release = () => {
   return (
-    <div>
+    <div className="w-full">
       <p className="my-2 text-2xl font-bold">New releases.</p>
 
-      <div className="grid grid-flow-col gap-5 overflow-x-auto pb-2 auto-cols-[153px]">
-        {Array(2500)
+      <div className="grid  grid-flow-col gap-5  pb-2 auto-cols-[153px]">
+        {Array(25)
           .fill({
             image: photo,
           })

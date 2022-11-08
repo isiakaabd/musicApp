@@ -1,10 +1,12 @@
-import { Footer } from "./components";
-import Home from "./pages/Home";
+import { Footer, Sidebar } from "./components";
+
+import ProjectRoutes from "./Routes";
+
 function App() {
   return (
-    <div className="text-3xl text-white font-body min-h-screen bg-main ">
-      <Home />
-      <Footer />
+    <div className="flex gap-8 bg-main  p-6 text-3xl w-full text-white font-body min-h-screen  ">
+      <Sidebar />
+      <ProjectRoutes />
     </div>
   );
 }

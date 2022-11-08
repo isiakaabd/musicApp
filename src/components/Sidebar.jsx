@@ -8,7 +8,7 @@ import { ReactComponent as Logout } from "./../assets/images/Logout.svg";
 
 const Sidebar = () => {
   return (
-    <div className="hidden sidebar w-[52px]  gap-4 flex-col items-center md:flex">
+    <nav className="hidden sidebar w-[52px]  gap-4 flex-col items-center lg:flex">
       <Logo />
       <div className="flex flex-col items-center mt-[40px] gap-[20px]">
         <div className="dark-bg">
@@ -22,7 +22,7 @@ const Sidebar = () => {
           <Logout />
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
