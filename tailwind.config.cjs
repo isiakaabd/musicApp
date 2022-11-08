@@ -1,16 +1,24 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        xs: "475px",
+        ...defaultTheme.screens,
+      },
       colors: {
         main: "#1D2123",
         dark: "#1A1E1F",
         lightGreen: "#609EAF",
+        lightDark: "#EFEEE0",
+        cardBg: "rgba(51, 55, 59, 0.37)",
       },
       backgroundImage: {
         person:
           "url('./../src/assets/images/photo1.png'),url('./../src/assets/images/vector.png')",
+        album: "url('./../src/assets/images/bg2.png')",
       },
     },
 

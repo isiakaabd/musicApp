@@ -5,6 +5,7 @@ import { ReactComponent as Playlist } from "./../assets/images/playlists.svg";
 import { ReactComponent as Video } from "./../assets/images/videos.svg";
 import { ReactComponent as Profile } from "./../assets/images/profile.svg";
 import { ReactComponent as Logout } from "./../assets/images/Logout.svg";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -12,9 +13,15 @@ const Sidebar = () => {
       <Logo />
       <div className="flex flex-col items-center mt-[40px] gap-[20px]">
         <div className="dark-bg">
-          <Home />
-          <Radio />
-          <Playlist className="hover:fill-current hover:bg-main" />
+          <Link to="/" relative="path">
+            <Home />
+          </Link>
+          <Link to="/album" relative="path">
+            <Radio />
+          </Link>
+          <Link to="/collection" relative="path">
+            <Playlist className="hover:fill-current hover:bg-main" />
+          </Link>
           <Video />
         </div>
         <div className="dark-bg">

@@ -23,27 +23,29 @@ const Home = () => {
         </div>
         <div className=" w-full lg:w-[35%] overflow-y-auto">
           <p className="text-[#EFEEE0] text-2xl font-bold mb-2">Top Charts</p>
-          <div className="flex lg:flex-col pb-4 overflow-x-auto  gap-4">
-            {Array(30)
-              .fill({
-                text: "Golden age of 80s",
-                subTitle: "Sean swadder",
-                timeStamp: "2:34:45",
-                image: photo,
-              })
-              .map((item, index) => (
-                <TopChartCard
-                  key={index}
-                  text={item.text}
-                  subTitle={item.subTitle}
-                  timeStamp={item.timeStamp}
-                  image={photo}
-                />
-              ))}
+          <div className=" lg:max-h-[400px] overflow-y-auto">
+            <div className="flex lg:flex-col   overflow-y-auto pb-4 overflow-x-auto  gap-4">
+              {Array(30)
+                .fill({
+                  text: "Golden age of 80s",
+                  subTitle: "Sean swadder",
+                  timeStamp: "2:34:45",
+                  image: photo,
+                })
+                .map((item, index) => (
+                  <TopChartCard
+                    key={index}
+                    text={item.text}
+                    subTitle={item.subTitle}
+                    timeStamp={item.timeStamp}
+                    image={photo}
+                  />
+                ))}
+            </div>
           </div>
         </div>
       </div>
-      <div className="flex-1  overflow-x-auto">
+      <div className="flex-1">
         <Release />
       </div>
       <Search />

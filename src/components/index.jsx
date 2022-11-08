@@ -5,3 +5,5 @@ export { default as SearchBar } from "./SearchBar";
 export { default as Sidebar } from "./Sidebar";
 export { default as TopChartCard } from "./TopChartCard";
 export { default as Footer } from "./Footer";
+export { default as AlbumCard } from "./AlbumCard";
+export { default as AlbumItem } from "./AlbumItem";

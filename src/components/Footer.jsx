@@ -7,7 +7,7 @@ import { ReactComponent as Shuffle } from "./../assets/images/shuffle.svg";
 import { ReactComponent as Volume } from "./../assets/images/volume.svg";
 import propTypes from "prop-types";
 import { useState } from "react";
-const Footer = ({ name, subtitle, photo, playValue }) => {
+const Footer = ({ name, subtitle, photo, playValue, ...rest }) => {
   const [value, setValue] = useState(playValue);
   function addJust(e) {
     const { style, value } = e.target;
@@ -25,7 +25,10 @@ const Footer = ({ name, subtitle, photo, playValue }) => {
   }
 
   return (
-    <aside className="fixed flex px-6 lg:px-[80px] gap-3 justify-between bottom-0 left-0 right-0 backdrop-blur-lg py-1">
+    <aside
+      className="fixed  flex px-6 lg:px-[80px] gap-3 justify-between bottom-0 left-0 right-0 backdrop-blur-lg py-1"
+      {...rest}
+    >
       <div className="flex flex-none gap-3 items-center justify-between">
         <div className="h-12 w-12">
           <img src={photo} alt="album-name" className="rounded-[14px]" />
@@ -71,7 +74,7 @@ Footer.propTypes = {
   name: propTypes.string.isRequired,
   subtitle: propTypes.string.isRequired,
   photo: propTypes.node.isRequired,
-  playValue: propTypes.number.isRequired,
+  playValue: propTypes.number,
 };
 
 export default Footer;
