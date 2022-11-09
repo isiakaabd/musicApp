@@ -1,4 +1,4 @@
-import photo from "./../assets/images/AlbumCard.png";
+import photo from "/AlbumCard.png";
 const Release = () => {
   return (
     <div className="w-full">

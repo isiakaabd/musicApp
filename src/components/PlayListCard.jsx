@@ -1,5 +1,5 @@
-import { ReactComponent as Heart } from "./../assets/images/Heart.svg";
-import contacts from "./../assets/images/Frame.png";
+import { ReactComponent as Heart } from "../../public/Heart.svg";
+import contacts from "/Frame.png";
 const PlayListCard = () => {
   return (
     <div className="card h-full  flex flex-1 sm:flex-col bg-none lg:bg-person bg-contain bg-no-repeat bg-right">

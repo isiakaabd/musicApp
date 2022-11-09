@@ -1,10 +1,10 @@
 //
-import { ReactComponent as Previous } from "./../assets/images/previous.svg";
-import { ReactComponent as Next } from "./../assets/images/next.svg";
-import { ReactComponent as Play } from "./../assets/images/play.svg";
-import { ReactComponent as Repeat } from "./../assets/images/repeat-one.svg";
-import { ReactComponent as Shuffle } from "./../assets/images/shuffle.svg";
-import { ReactComponent as Volume } from "./../assets/images/volume.svg";
+import { ReactComponent as Previous } from "../../public/previous.svg";
+import { ReactComponent as Next } from "../../public/next.svg";
+import { ReactComponent as Play } from "../../public/play.svg";
+import { ReactComponent as Repeat } from "../../public/repeat-one.svg";
+import { ReactComponent as Shuffle } from "../../public/shuffle.svg";
+import { ReactComponent as Volume } from "../../public/volume.svg";
 import propTypes from "prop-types";
 import { useState } from "react";
 const Footer = ({ name, subtitle, photo, playValue, ...rest }) => {

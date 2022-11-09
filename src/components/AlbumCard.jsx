@@ -1,9 +1,9 @@
-import photo from "./../assets/images/artisit.png";
-import music from "./../assets/images/music-square.png";
-import play from "./../assets/images/play.png";
-import heart from "./../assets/images/heart.png";
-import { ReactComponent as Play } from "./../assets/images/pla.svg";
-import { ReactComponent as Music } from "./../assets/images/music-square.svg";
+import photo from "/artisit.png";
+import music from "/music-square.png";
+import play from "/play.png";
+import heart from "/heart.png";
+import { ReactComponent as Play } from "../../public/pla.svg";
+import { ReactComponent as Music } from "../../public/music.svg";
 
 const AlbumCard = () => {
   return (

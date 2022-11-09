@@ -1,4 +1,4 @@
-import { ReactComponent as Search } from "./../assets/images/search.svg";
+import { ReactComponent as Search } from "../../public/search.svg";
 import Proptypes from "prop-types";
 const SearchBar = ({ placeholder }) => {
   return (

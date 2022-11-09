@@ -1,10 +1,10 @@
-import { ReactComponent as Logo } from "./../assets/images/logo.svg";
-import { ReactComponent as Home } from "./../assets/images/Home.svg";
-import { ReactComponent as Radio } from "./../assets/images/radio.svg";
-import { ReactComponent as Playlist } from "./../assets/images/playlists.svg";
-import { ReactComponent as Video } from "./../assets/images/videos.svg";
-import { ReactComponent as Profile } from "./../assets/images/profile.svg";
-import { ReactComponent as Logout } from "./../assets/images/Logout.svg";
+import { ReactComponent as Logo } from "../../public/logo.svg";
+import { ReactComponent as Home } from "../../public/Home.svg";
+import { ReactComponent as Radio } from "../../public/radio.svg";
+import { ReactComponent as Playlist } from "../../public/playlists.svg";
+import { ReactComponent as Video } from "../../public/videos.svg";
+import { ReactComponent as Profile } from "../../public/profile.svg";
+import { ReactComponent as Logout } from "../../public/Logout.svg";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {

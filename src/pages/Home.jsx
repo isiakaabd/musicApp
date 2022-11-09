@@ -1,6 +1,6 @@
-import photo from "./../assets/images/photo1.png";
-import photos from "./../assets/images/AlbumCard.png";
-// import { ReactComponent as Photos } from "./../assets/images
+import photo from "/photo1.png";
+import photos from "/AlbumCard.png";
+// import { ReactComponent as Photos } from "
 import {
   PlayListCard,
   SearchBar,

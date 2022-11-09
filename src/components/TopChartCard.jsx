@@ -1,16 +1,15 @@
-import { ReactComponent as Heart } from "./../assets/images/Heart-fill.svg";
+import { ReactComponent as Heart } from "../../public/Heart-fill.svg";
 
 const TopChartCard = ({ image, text, subTitle, timeStamp }) => {
   return (
     <div className=" whitespace-nowrap text-white bg-dark flex justify-between p-4 rounded-lg">
       <div className="flex gap-4 sm:gap-2 justify-between  flex-col lg:flex-row ">
-        {/* <div className=" bg-main max-w-[105px]"> */}
         <img
           src={image}
           alt={`image of ${text}`}
           className=" object-contain h-full w-24 sm:w-16 md:w-16 border-solid border border-main rounded-[10px]"
         />
-        {/* </div> */}
+
         <div className="flex  font-normal  flex-col justify-between">
           <p className="text-lg ">{text}</p>
           <p className="text-xs text-white/50">{subTitle}</p>
