@@ -1,4 +1,4 @@
-import { ReactComponent as Heart } from "../../public/Heart-fill.svg";
+import { ReactComponent as Heart } from "/src/assets/images/Heart-fill.svg";
 
 const TopChartCard = ({ image, text, subTitle, timeStamp }) => {
   return (

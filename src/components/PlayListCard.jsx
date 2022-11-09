@@ -1,8 +1,8 @@
-import { ReactComponent as Heart } from "../../public/Heart.svg";
+import { ReactComponent as Heart } from "/src/assets/images/Heart.svg";
 import contacts from "/Frame.png";
 const PlayListCard = () => {
   return (
-    <div className="card h-full  flex flex-1 sm:flex-col bg-none lg:bg-person bg-contain bg-no-repeat bg-right">
+    <div className="card h-full  flex flex-1 sm:flex-col  bg-none lg:bg-person bg-contain bg-no-repeat bg-right">
       <div className="flex-1  flex  flex-col gap-10 p-8">
         <p className="font-normal  text-sm">Curated playlist</p>
         <div className="my-8">
@@ -15,7 +15,7 @@ const PlayListCard = () => {
         <div className="flex  items-center gap-4">
           <img
             src={contacts}
-            alt=""
+            alt="contact-icon"
             className="object-contain h-12 w-12 min-w-[124px]"
           />
           <Heart className="h-6 w-6" />

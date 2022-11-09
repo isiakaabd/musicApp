@@ -16,9 +16,8 @@ module.exports = {
         cardBg: "rgba(51, 55, 59, 0.37)",
       },
       backgroundImage: {
-        person:
-          "url('./../src/assets/images/photo1.png'),url('./../src/assets/images/vector.png')",
-        album: "url('./../src/assets/images/bg2.png')",
+        person: "url('/photo1.png'),url('/vector.png')",
+        album: "url('/bg2.png')",
       },
     },
 

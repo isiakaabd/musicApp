@@ -2,8 +2,8 @@ import photo from "/artisit.png";
 import music from "/music-square.png";
 import play from "/play.png";
 import heart from "/heart.png";
-import { ReactComponent as Play } from "../../public/pla.svg";
-import { ReactComponent as Music } from "../../public/music.svg";
+import { ReactComponent as Play } from "/src/assets/images/pla.svg";
+import { ReactComponent as Music } from "/src/assets/images/music.svg";
 
 const AlbumCard = () => {
   return (

@@ -1,5 +1,5 @@
-import { ReactComponent as Heart } from "../../public/Heart2.svg";
-import { ReactComponent as Vertical } from "../../public/vertical.svg";
+import { ReactComponent as Heart } from "/src/assets/images/Heart2.svg";
+import { ReactComponent as Vertical } from "/src/assets/images/vertical.svg";
 
 import Proptypes from "prop-types";
 const AlbumItem = ({ item, setState }) => {

@@ -1,5 +1,4 @@
 import { SearchBar, AlbumCard, AlbumItem, Footer } from "../components";
-import vertical from "/vertical.png";
 import image1 from "/image-1.png";
 import image2 from "/image-2.png";
 import image3 from "/image-3.png";
@@ -12,7 +11,7 @@ const Album = () => {
       title: "Let me love you ~ Krisx",
       subtitle: "Single",
       duration: "4:15",
-      image: vertical,
+      image: image1,
     },
     {
       title: "Watin man go do ~ Burna",
@@ -35,19 +34,14 @@ const Album = () => {
   ];
   const [state, setState] = useState(arr[0]);
 
-  const { title, subtitle, image, duration } = state;
-  console.log(state);
+  const { title, subtitle, image } = state;
+
   return (
     <div className="w-full flex flex-col gap-4 bg-album">
       <SearchBar placeholder="Search artists" />
       <AlbumCard />
       {arr.map((item) => (
-        <AlbumItem
-          key={item.duration}
-          item={item}
-          setState={setState}
-          // onclick={() => setState(item)}
-        />
+        <AlbumItem key={item.duration} item={item} setState={setState} />
       ))}
       <Footer subtitle={subtitle} name={title} photo={image} />
     </div>

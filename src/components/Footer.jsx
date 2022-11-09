@@ -1,10 +1,10 @@
 //
-import { ReactComponent as Previous } from "../../public/previous.svg";
-import { ReactComponent as Next } from "../../public/next.svg";
-import { ReactComponent as Play } from "../../public/play.svg";
-import { ReactComponent as Repeat } from "../../public/repeat-one.svg";
-import { ReactComponent as Shuffle } from "../../public/shuffle.svg";
-import { ReactComponent as Volume } from "../../public/volume.svg";
+import { ReactComponent as Previous } from "/src/assets/images/previous.svg";
+import { ReactComponent as Next } from "/src/assets/images/next.svg";
+import { ReactComponent as Play } from "/src/assets/images/play.svg";
+import { ReactComponent as Repeat } from "/src/assets/images/repeat-one.svg";
+import { ReactComponent as Shuffle } from "/src/assets/images/shuffle.svg";
+import { ReactComponent as Volume } from "/src/assets/images/volume.svg";
 import propTypes from "prop-types";
 import { useState } from "react";
 const Footer = ({ name, subtitle, photo, playValue, ...rest }) => {
@@ -13,15 +13,6 @@ const Footer = ({ name, subtitle, photo, playValue, ...rest }) => {
     const { style, value } = e.target;
 
     setValue(value);
-    // style.background = `linear-gradient(to right, #facd66 0%,#facd66 ${value}%, transparent ${value}%, transparent 100%)`;
-    // style.border = "2px solid";
-    // style.height = "3px";
-    // style.borderRadius = "50px";
-    // style["accentColor"] = "red";
-    // style["moz-range-track"].border = "2px solid #facd66";
-    // console.log(style);
-    // style["::-moz-range-track"].background = "red";
-    // this.style.background = ;
   }
 
   return (

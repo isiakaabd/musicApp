@@ -1,10 +1,10 @@
-import { ReactComponent as Logo } from "../../public/logo.svg";
-import { ReactComponent as Home } from "../../public/Home.svg";
-import { ReactComponent as Radio } from "../../public/radio.svg";
-import { ReactComponent as Playlist } from "../../public/playlists.svg";
-import { ReactComponent as Video } from "../../public/videos.svg";
-import { ReactComponent as Profile } from "../../public/profile.svg";
-import { ReactComponent as Logout } from "../../public/Logout.svg";
+import { ReactComponent as Logo } from "/src/assets/images/logo.svg";
+import { ReactComponent as Home } from "/src/assets/images/Home.svg";
+import { ReactComponent as Radio } from "/src/assets/images/radio.svg";
+import { ReactComponent as Playlist } from "/src/assets/images/playlists.svg";
+import { ReactComponent as Video } from "/src/assets/images/videos.svg";
+import { ReactComponent as Profile } from "/src/assets/images/profile.svg";
+import { ReactComponent as Logout } from "/src/assets/images/Logout.svg";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -13,14 +13,14 @@ const Sidebar = () => {
       <Logo />
       <div className="flex flex-col items-center mt-[40px] gap-[20px]">
         <div className="dark-bg">
-          <Link to="/" relative="path">
+          <Link to="/">
             <Home />
           </Link>
-          <Link to="/album" relative="path">
-            <Radio />
+          <Link to="/album">
+            <Radio className="hover:stroke-white" />
           </Link>
-          <Link to="/collection" relative="path">
-            <Playlist className="hover:fill-current hover:bg-main" />
+          <Link to="/collection">
+            <Playlist />
           </Link>
           <Video />
         </div>

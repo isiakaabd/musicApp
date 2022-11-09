@@ -1,4 +1,4 @@
-import { Footer, Sidebar } from "./components";
+import { Sidebar } from "./components";
 import { BrowserRouter } from "react-router-dom";
 import ProjectRoutes from "./Routes";
 
