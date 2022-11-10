@@ -13,6 +13,7 @@ module.exports = {
         dark: "#1A1E1F",
         lightGreen: "#609EAF",
         lightDark: "#EFEEE0",
+        mainYellow: "#FACD66",
         cardBg: "rgba(51, 55, 59, 0.37)",
       },
       backgroundImage: {

@@ -1,6 +1,4 @@
 import photo from "/artisit.png";
-import music from "/music-square.png";
-import play from "/play.png";
 import heart from "/heart.png";
 import { ReactComponent as Play } from "/src/assets/images/pla.svg";
 import { ReactComponent as Music } from "/src/assets/images/music.svg";
@@ -25,12 +23,16 @@ const AlbumCard = () => {
           <div className="flex items-center gap-2 p-2 rounded-3xl backdrop-blur-sm bg-white/[0.07]">
             {/* <img src={play} alt="play" /> */}
             <Play className="h-5" />
-            <p className="text-[12px] leading-none">Play All</p>
+            <p className="text-[12px] leading-none whitespace-nowrap">
+              Play All
+            </p>
           </div>
           <div className="flex items-center gap-2 p-2 rounded-3xl backdrop-blur-sm bg-white/[0.07]">
             {/* <img src={music} alt="music-square" /> */}
             <Music className="h-5" />
-            <p className="text-[12px] leading-none">Add to Collection</p>
+            <p className="text-[12px] leading-none whitespace-nowrap">
+              Add to Collection
+            </p>
           </div>
           <div className="flex items-center gap-2 p-2 rounded-3xl backdrop-blur-sm bg-white/[0.07]">
             {/* <img src={music} alt="music-square" /> */}

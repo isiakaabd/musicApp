@@ -46,6 +46,11 @@
   }
 }
 @layer components {
+  .svg {
+    @apply fill-[#efeee040] h-6 w-6 hover:fill-mainYellow transition-all;
+  }
+}
+@layer components {
   .card {
     background-color: theme("colors.lightGreen");
     border-radius: 40px;

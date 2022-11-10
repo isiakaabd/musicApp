@@ -14,6 +14,13 @@ const Album = () => {
       image: image1,
     },
     {
+      title:
+        "This is a long text testing overflow clip ~ Hope it clips as expected ",
+      subtitle: "Single",
+      duration: "4:15",
+      image: image1,
+    },
+    {
       title: "Watin man go do ~ Burna",
       subtitle: "African giant",
       duration: "4:25",

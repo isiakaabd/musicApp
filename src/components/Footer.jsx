@@ -20,17 +20,23 @@ const Footer = ({ name, subtitle, photo, playValue, ...rest }) => {
       className="fixed  flex px-6 lg:px-[80px] gap-3 justify-between bottom-0 left-0 right-0 backdrop-blur-lg py-1"
       {...rest}
     >
-      <div className="flex flex-none gap-3 items-center justify-between">
+      <div className="flex w-[65%] md:max-w-[300px]  gap-3 items-center justify-between">
         <div className="h-12 w-12">
-          <img src={photo} alt="album-name" className="rounded-[14px]" />
+          <img
+            src={photo}
+            alt="album-name"
+            className="rounded-[14px] w-full h-full"
+          />
         </div>
 
-        <div className="flex flex-col gap-1 ">
-          <p className="text-sm font-bold">{name}</p>
+        <div className="flex-1 overflow-hidden">
+          <p className="text-sm font-bold overflow-hidden truncate ...">
+            {name}
+          </p>
           <p className="text-xs font-bold text-white/[.44]">{subtitle}</p>
         </div>
       </div>
-      <div className="w-64  flex-auto flex justify-between flex-col">
+      <div className=" flex-1   flex justify-between flex-col">
         <div className="flex justify-center  items-center ">
           <div className="flex items-center gap-6 justify-between">
             <Shuffle className="hidden md:block" />
@@ -52,7 +58,7 @@ const Footer = ({ name, subtitle, photo, playValue, ...rest }) => {
           />
         </div>
       </div>
-      <div className="w-32  flex-1 self-center hidden lg:block">
+      <div className="flex-1 self-center hidden lg:block">
         <div className="flex justify-between items-center gap-4">
           <Volume className="" />
           <input type="range" name="range" id="" />
