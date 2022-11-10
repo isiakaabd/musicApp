@@ -7,8 +7,12 @@ const AlbumItem = ({ item, setState }) => {
   return (
     <div className="p-4 cursor-pointer bg-cardBg grid gap-x-4 lg:flex lg:justify-between auto-rows-[1fr] auto-cols-[1fr] place-content-center justify-items-start  items-center">
       <div className="flex h-full flex-1 w-full items-center gap-6 mr-auto col-start-1 col-span-1  row-start-1 row-span-2 ">
-        <div className="h-full w-full  lg:w-max">
-          <img src={image} alt="title" className="h-full object-contain" />
+        <div className="h-16 w-16 ">
+          <img
+            src={image}
+            alt="title"
+            className="h-full w-full object-contain"
+          />
         </div>
         <Heart className="hidden sm:block" onClick={() => setState(item)} />
       </div>

@@ -1,4 +1,4 @@
-import { ReactComponent as Logo } from "/src/assets/images/logo.svg";
+import Logo from "/src/assets/images/Logo";
 import Home from "/src/assets/images/Home";
 import Radio from "/src/assets/images/Radio";
 import Playlist from "/src/assets/images/Playlists";
@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <nav className="hidden sidebar w-[52px]  gap-4 flex-col items-center lg:flex">
-      <Logo />
-      <div className="flex flex-col  justify-center items-center mt-[40px] gap-[20px]">
+    <header className="hidden sidebar w-[52px]  gap-4 flex-col items-center lg:flex">
+      <Logo className="h-8" />
+      <nav className="flex flex-col justify-center items-center mt-[40px] gap-y-8">
         <div className="dark-bg">
           <Link to="/">
             <div className="flex  justify-between">
@@ -32,7 +32,7 @@ const Sidebar = () => {
             <Video className="svg" />
           </Link>
         </div>
-        <div className="dark-bg flex items-center flex-col gap-[20px] justify-center">
+        <div className="dark-bg flex items-center flex-col gap-y-8 justify-center">
           <Link to="/profile">
             <Profile className="svg" />
           </Link>
@@ -40,8 +40,8 @@ const Sidebar = () => {
             <Logout className="svg" />
           </Link>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
 

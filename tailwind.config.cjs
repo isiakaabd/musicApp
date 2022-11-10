@@ -29,7 +29,7 @@ module.exports = {
   variants: {
     fill: ["hover", "focus"], // this line does the trick
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
   rules: [
     {
       test: /\.(png|jpe?g|gif)$/i,

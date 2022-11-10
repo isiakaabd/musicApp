@@ -16,8 +16,8 @@ const Footer = ({ name, subtitle, photo, playValue, ...rest }) => {
   }
 
   return (
-    <aside
-      className="fixed  flex px-6 lg:px-[80px] gap-3 justify-between bottom-0 left-0 right-0 backdrop-blur-lg py-1"
+    <footer
+      className="fixed z-[9999999]  flex px-6 lg:px-[80px] gap-3 justify-between bottom-0 left-0 right-0 backdrop-blur-lg py-1"
       {...rest}
     >
       <div className="flex w-[65%] md:max-w-[300px]  gap-3 items-center justify-between">
@@ -36,7 +36,7 @@ const Footer = ({ name, subtitle, photo, playValue, ...rest }) => {
           <p className="text-xs font-bold text-white/[.44]">{subtitle}</p>
         </div>
       </div>
-      <div className=" flex-1   flex justify-between flex-col">
+      <div className=" flex-auto   flex justify-between flex-col">
         <div className="flex justify-center  items-center ">
           <div className="flex items-center gap-6 justify-between">
             <Shuffle className="hidden md:block" />
@@ -64,7 +64,7 @@ const Footer = ({ name, subtitle, photo, playValue, ...rest }) => {
           <input type="range" name="range" id="" />
         </div>
       </div>
-    </aside>
+    </footer>
   );
 };
 Footer.propTypes = {

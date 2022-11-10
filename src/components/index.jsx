@@ -9,3 +9,4 @@ export { default as AlbumCard } from "./AlbumCard";
 export { default as AlbumItem } from "./AlbumItem";
 export { default as Button } from "./Button";
 export { default as CollectionCard } from "./CollectionCard";
+export { default as MobileNav } from "./MobileNav";

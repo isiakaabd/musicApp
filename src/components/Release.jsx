@@ -3,7 +3,9 @@ const Release = () => {
   return (
     <div className="w-full">
       <p className="my-2 text-2xl font-bold">New releases.</p>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto ">
+        {/* /*scrollbar-thumb-blue-700 scrollbar-track-blue-300
+        hover:scrollbar-thumb-green-700 */}
         <div className="grid  grid-flow-col gap-5  pb-2 auto-cols-[153px]">
           {Array(25)
             .fill({

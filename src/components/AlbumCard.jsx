@@ -20,22 +20,19 @@ const AlbumCard = () => {
           <p className="text-sm text-lightDark mt-4">64 songs ~ 16 hrs+</p>
         </div>
         <div className="flex justify-between lg:justify-start flex-1 items-center gap-4">
-          <div className="flex items-center gap-2 p-2 rounded-3xl backdrop-blur-sm bg-white/[0.07]">
-            {/* <img src={play} alt="play" /> */}
+          <div className="flex items-center gap-2 py-2 px-4 rounded-3xl backdrop-blur-sm bg-white/[0.07]">
             <Play className="h-5" />
             <p className="text-[12px] leading-none whitespace-nowrap">
               Play All
             </p>
           </div>
-          <div className="flex items-center gap-2 p-2 rounded-3xl backdrop-blur-sm bg-white/[0.07]">
-            {/* <img src={music} alt="music-square" /> */}
+          <div className="flex items-center gap-2 py-2 px-4  rounded-3xl backdrop-blur-sm bg-white/[0.07]">
             <Music className="h-5" />
             <p className="text-[12px] leading-none whitespace-nowrap">
               Add to Collection
             </p>
           </div>
-          <div className="flex items-center gap-2 p-2 rounded-3xl backdrop-blur-sm bg-white/[0.07]">
-            {/* <img src={music} alt="music-square" /> */}
+          <div className="flex items-center gap-2 py-2 px-4 lg:px-2 rounded-3xl backdrop-blur-sm bg-white/[0.07]">
             <img src={heart} alt="heart" className="" />
             <p className="text-[12px] lg:hidden leading-none">Like</p>
           </div>
