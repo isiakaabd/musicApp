@@ -42,7 +42,13 @@
 }
 @layer components {
   .dark-bg {
-    @apply transition duration-500 bg-dark w-[52px] flex flex-col rounded-full  items-center py-[25px] gap-[20px];
+    @apply transition duration-100 bg-dark w-[52px] flex flex-col rounded-full  items-center py-[25px] gap-[20px];
+  }
+}
+
+@layer components {
+  .active {
+    @apply transition-all duration-500 text-mainYellow fill-mainYellow;
   }
 }
 @layer components {

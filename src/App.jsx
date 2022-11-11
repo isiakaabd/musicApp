@@ -4,7 +4,7 @@ import ProjectRoutes from "./Routes";
 
 function App() {
   return (
-    <main className="flex gap-8 bg-main  p-4 md:p-6 text-3xl w-full text-white font-body min-h-screen">
+    <main className="flex relative gap-8 bg-main  p-4 md:p-6 text-3xl w-full text-white font-body min-h-screen">
       <BrowserRouter>
         <Sidebar />
         <section className="w-full lg:w-[calc(100%-4em)]">

@@ -1,6 +1,6 @@
 import Hamburger from "/src/assets/images/Hamburger";
 import Search from "/src/assets/images/Search";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Logo from "/src/assets/images/Logo";
 import Home from "/src/assets/images/Home";
 import Radio from "/src/assets/images/Radio";
@@ -11,7 +11,43 @@ import Logout from "/src/assets/images/Logout";
 import { Link } from "react-router-dom";
 const MobileNav = () => {
   const [state, setState] = useState(false);
-
+  const [selected, setSelected] = useState(0);
+  console.log(selected);
+  const details = useMemo(
+    () => [
+      {
+        path: "/",
+        text: "Home",
+        icon: <Home className />,
+      },
+      {
+        path: "/album",
+        text: "Album",
+        icon: <Radio />,
+      },
+      {
+        path: "/collection",
+        text: "My Collection",
+        icon: <Playlist />,
+      },
+      {
+        path: "/video",
+        text: "Music Video",
+        icon: <Video />,
+      },
+      {
+        path: "/profile",
+        text: "Profile",
+        icon: <Profile />,
+      },
+      {
+        path: "/logout",
+        text: "Logout",
+        icon: <Logout />,
+      },
+    ],
+    []
+  );
   return (
     <>
       <div className="flex justify-between mb-4 overflow-y-hidden shadow-2xl relative">
@@ -32,7 +68,7 @@ const MobileNav = () => {
         )}
       </div>
       <div
-        className={`absolute transition-all duration-200 ease-in-out inset-0 z-50 ${
+        className={`absolute transition-all duration-200  ease-in-out inset-0 z-50 ${
           state ? "translate-x-0" : "translate-x-[-1000px]"
         } min-h-screen h-full bg-dark  overflow-hidden`}
       >
@@ -42,54 +78,39 @@ const MobileNav = () => {
           className="p-4 mt-4"
         >
           <ul className="text-sm gap-y-7 flex flex-col">
-            <li>
-              <Link to="/">
-                <div className="flex  gap-x-6 items-center">
-                  <Home className="svg" />
-                  <span>Home</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/album">
-                <div className="flex  gap-x-6 items-center">
-                  <Radio className="svg" />
-                  <span>Album</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/collection">
-                <div className="flex  gap-x-6 items-center">
-                  <Playlist className="svg" />
-                  <span>My Collection</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/video">
-                <div className="flex  gap-x-6 items-center">
-                  <Video className="svg" />
-                  <span>Music Video</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/video">
-                <div className="flex  gap-x-6 items-center">
-                  <Profile className="svg" />
-                  <span>Profile</span>
-                </div>
-              </Link>
-            </li>
-            <li>
-              <Link to="/video">
-                <div className="flex  gap-x-6 items-center">
-                  <Logout className="svg" />
-                  <span>Logout</span>
-                </div>
-              </Link>
-            </li>
+            {details.map((item, index) => {
+              const { path, text, icon } = item;
+              return (
+                <li
+                  onClick={() => {
+                    setSelected(index);
+                    setState(false);
+                  }}
+                  key={index}
+                  className={`transition-all duration-200 ease-linear   ${
+                    index === selected
+                  }? "active" : ""`}
+                >
+                  <Link to={path}>
+                    <div
+                      className={`flex  gap-x-6 items-center ${
+                        index === selected && "active"
+                      }`}
+                    >
+                      <div
+                        className={`w-8  ${
+                          index === selected ? "active" : "fill-[#EFEEE0]"
+                        }`}
+                      >
+                        {icon}
+                      </div>
+                      {/* <Icon className={`svg ${state}&& fill-mainYellow`} /> */}
+                      <span>{text}</span>
+                    </div>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>
