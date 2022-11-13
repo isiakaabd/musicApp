@@ -29,7 +29,6 @@ const Player = ({
   useEffect(() => {
     ref.current.currentTime = seekTime;
   }, [seekTime]);
-  console.log(ref);
   return (
     <audio
       src={activeSong?.hub?.actions[1]?.uri}

@@ -1,14 +1,18 @@
 //
 import { ReactComponent as Previous } from "/src/assets/images/previous.svg";
 import { ReactComponent as Next } from "/src/assets/images/next.svg";
-import { ReactComponent as Play } from "/src/assets/images/play.svg";
+import Play from "/src/assets/images/Play";
+import Pause from "/src/assets/images/Pause";
 import { ReactComponent as Repeat } from "/src/assets/images/repeat-one.svg";
 import { ReactComponent as Shuffle } from "/src/assets/images/shuffle.svg";
-
 import propTypes from "prop-types";
 import { useState } from "react";
 import Player from "./musicPlayer/Player";
 import VolumeBar from "./musicPlayer/Volume";
+import TrackDetails from "./musicPlayer/TrackDetails";
+import { useDispatch } from "react-redux";
+import { setPlayPause } from "../store/reducers/musicReducer";
+
 const Footer = ({ activeSong, isPlaying }) => {
   const { title, subtitle, url, images, ...rest } = activeSong;
   const [duration, setDuration] = useState(0);
@@ -18,10 +22,11 @@ const Footer = ({ activeSong, isPlaying }) => {
   const [repeat, setRepeat] = useState(false);
   const [shuffle, setShuffle] = useState(false);
   const [value, setValue] = useState(40);
+  const dispatch = useDispatch();
   function addJust(e) {
     const { style, value } = e.target;
 
-    setValue(props);
+    // setValue(props);
   }
 
   return (
@@ -29,30 +34,26 @@ const Footer = ({ activeSong, isPlaying }) => {
       className="fixed z-[9999999]  flex px-6 lg:px-[80px] gap-3 justify-between bottom-0 left-0 right-0 backdrop-blur-lg py-1"
       {...rest}
     >
-      <div className="flex w-[65%] md:max-w-[300px]  gap-3 items-center justify-between">
-        <div className="h-12 w-12">
-          <img
-            src={images?.coverart}
-            alt={`image of ${title}`}
-            className="rounded-[14px] w-full h-full"
-          />
-        </div>
-
-        <div className="flex-1 overflow-hidden">
-          <p className="text-sm font-bold overflow-hidden truncate ...">
-            {title}
-          </p>
-          <p className="text-xs font-bold text-white/[.44]">{subtitle}</p>
-        </div>
-      </div>
+      <TrackDetails images={images} title={title} subtitle={subtitle} />
       <div className=" flex-auto   flex justify-between flex-col">
         <div className="flex justify-center  items-center ">
           <div className="flex items-center gap-6 justify-between">
             <Shuffle className="hidden md:block" />
             <Previous className=" hidden md:block" />
             <div className="relative">
-              <Play />
-              <div className="absolute inset-0">
+              {isPlaying ? (
+                <Pause
+                  className="h-12 w-12 fill-mainYellow"
+                  // onClick={() => alert(22)}
+                  onClick={() => dispatch(setPlayPause(false))}
+                />
+              ) : (
+                <Play
+                  className="h-12 w-12 fill-mainYellow"
+                  onClick={() => dispatch(setPlayPause(true))}
+                />
+              )}
+              <div className="absolute inset-0 z-[-1]">
                 <Player
                   activeSong={activeSong}
                   volume={volume}

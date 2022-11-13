@@ -120,10 +120,12 @@ export const dataSlice = createSlice({
       state.isActive = true;
       state.isPlaying = true;
     },
-    fetchAlbum(state, action) {},
+    setPlayPause(state, action) {
+      state.isPlaying = action.payload;
+    },
   },
 });
 
 const { reducer, actions } = dataSlice;
-export const { setActiveSong } = actions;
+export const { setActiveSong, setPlayPause } = actions;
 export default reducer;
