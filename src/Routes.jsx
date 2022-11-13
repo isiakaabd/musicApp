@@ -3,7 +3,7 @@ import Album from "./pages/Album";
 import Collection from "./pages/Collection";
 import Home from "./pages/Home";
 
-const ProjectRoutes = () => {
+const ProjectRoutes = ({ uris }) => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />

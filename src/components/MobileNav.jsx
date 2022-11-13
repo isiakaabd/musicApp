@@ -12,13 +12,12 @@ import { Link } from "react-router-dom";
 const MobileNav = () => {
   const [state, setState] = useState(false);
   const [selected, setSelected] = useState(0);
-  console.log(selected);
   const details = useMemo(
     () => [
       {
         path: "/",
         text: "Home",
-        icon: <Home className />,
+        icon: <Home />,
       },
       {
         path: "/album",
@@ -68,7 +67,7 @@ const MobileNav = () => {
         )}
       </div>
       <div
-        className={`absolute transition-all duration-200  ease-in-out inset-0 z-50 ${
+        className={`absolute smooth-transition transition-all duration-200  ease-in-out inset-0 z-50 ${
           state ? "translate-x-0" : "translate-x-[-1000px]"
         } min-h-screen h-full bg-dark  overflow-hidden`}
       >
