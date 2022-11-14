@@ -1,9 +1,10 @@
-import Search from "/src/assets/images/Search";
+import { FiSearch } from "react-icons/fi";
+
 import Proptypes from "prop-types";
 const SearchBar = ({ placeholder }) => {
   return (
     <div className="flex w-full items-center gap-4  max-w-[400px] p-2 bg-dark">
-      <Search className="h-5 w-5 " />
+      <FiSearch className="h-5 w-5 " />
       <input
         type="text"
         name=""

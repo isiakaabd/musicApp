@@ -1,18 +1,25 @@
+import { useDispatch } from "react-redux";
 import { ReactComponent as Heart } from "/src/assets/images/Heart-fill.svg";
-const Release = ({ data }) => {
+import { useGetAllSongsQuery } from "../api";
+import { setActiveSong } from "../store/reducers/musicReducer";
+
+const Release = () => {
+  const dispatch = useDispatch();
+  const { data } = useGetAllSongsQuery();
   return (
     <div className="w-full">
       <p className="my-2 text-2xl font-bold">New releases.</p>
       <div className="overflow-x-auto ">
         <div className="grid  grid-flow-col gap-5  pb-2 auto-cols-[153px]">
-          {data?.map((item, index) => {
-            const { images, title, subtitle } = item;
+          {data?.map((song, index) => {
+            const { images, title, subtitle } = song;
             return (
-              <div key={index} className="flex gap-4 flex-col">
+              <div key={index} className="flex gap-4 flex-col ">
                 <img
                   src={images?.coverart}
                   alt={`image of ${title}`}
-                  className="rounded-[25px] mb-2"
+                  className="rounded-[25px] mb-2 cursor-pointer"
+                  onClick={() => dispatch(setActiveSong({ song, data }))}
                 />
 
                 <div className="flex items-center justify-between gap-4">
@@ -22,7 +29,7 @@ const Release = ({ data }) => {
                       {subtitle}
                     </p>
                   </div>
-                  <Heart className="h-6 w-6 " />
+                  <Heart className="h-6 w-6 cursor-pointer" />
                 </div>
               </div>
             );

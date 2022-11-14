@@ -38,7 +38,7 @@ const Home = () => {
         </div>
       </div>
       <div className="flex-1">
-        <Release data={data} />
+        <Release />
       </div>
       <Search />
       {activeSong.title && (

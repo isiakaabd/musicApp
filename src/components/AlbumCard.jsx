@@ -1,7 +1,7 @@
 import photo from "/artisit.png";
 import heart from "/heart.png";
-import { ReactComponent as Play } from "/src/assets/images/pla.svg";
-import { ReactComponent as Music } from "/src/assets/images/music.svg";
+import { BsPlayCircle } from "react-icons/bs";
+import { GiMusicalNotes } from "react-icons/gi";
 
 const AlbumCard = () => {
   return (
@@ -19,15 +19,15 @@ const AlbumCard = () => {
           </p>
           <p className="text-sm text-lightDark mt-4">64 songs ~ 16 hrs+</p>
         </div>
-        <div className="flex justify-between lg:justify-start flex-1 items-center gap-4">
+        <div className="flex gap-2 lg:justify-start flex-wrap md:flex-nowrap flex-1 items-center  lg:gap-4">
           <div className="flex items-center gap-2 py-2 px-4 rounded-3xl backdrop-blur-sm bg-white/[0.07]">
-            <Play className="h-5" />
+            <BsPlayCircle className="h-5 stroke-mainYellow fill-mainYellow" />
             <p className="text-[12px] leading-none whitespace-nowrap">
               Play All
             </p>
           </div>
           <div className="flex items-center gap-2 py-2 px-4  rounded-3xl backdrop-blur-sm bg-white/[0.07]">
-            <Music className="h-5" />
+            <GiMusicalNotes className="h-5 stroke-mainYellow fill-mainYellow" />
             <p className="text-[12px] leading-none whitespace-nowrap">
               Add to Collection
             </p>

@@ -9,6 +9,7 @@ export const dataSlice = createSlice({
     isPlaying: false,
     activeSong: {},
     genreListId: "",
+    isActiveState: 0,
   },
 
   reducers: {
@@ -37,9 +38,24 @@ export const dataSlice = createSlice({
       state.isActive = true;
       // state.currentSongs
     },
+    previousSong(state, action) {
+      state.activeSong = state.currentSongs[action.payload];
+
+      state.isActive = true;
+      // state.currentSongs
+    },
+    activeIcon(state, action) {
+      state.isActiveState = action.payload;
+    },
   },
 });
 
 const { reducer, actions } = dataSlice;
-export const { setActiveSong, setPlayPause, nextSong } = actions;
+export const {
+  setActiveSong,
+  activeIcon,
+  setPlayPause,
+  previousSong,
+  nextSong,
+} = actions;
 export default reducer;

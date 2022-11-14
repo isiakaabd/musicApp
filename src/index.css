@@ -25,14 +25,13 @@
   input[type="range"]::-webkit-slider-runnable-track {
     height: 4px;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.02);
-    /* background: #facd66; */
     border-radius: 50px;
     border: 2px solid transparent;
   }
   input[type="range"]::-moz-range-thumb,
   input[type="range"]::-webkit-slider-thumb,
   input[type="range"]::-webkit-slider-thumb {
-    border: 4px solid rgba(0, 0, 0, 0.01);
+    border: 4px solid inherit;
     outline: 2px solid white;
     height: 8px;
     width: 8px;
@@ -47,13 +46,13 @@
 }
 
 @layer components {
-  .active {
-    @apply transition-all duration-500 text-mainYellow fill-mainYellow;
+  .svg {
+    @apply fill-[#efeee040] h-6 w-6 hover:fill-mainYellow transition-all;
   }
 }
 @layer components {
-  .svg {
-    @apply fill-[#efeee040] h-6 w-6 hover:fill-mainYellow transition-all;
+  .active {
+    @apply transition-all duration-500 text-mainYellow fill-mainYellow;
   }
 }
 @layer components {

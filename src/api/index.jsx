@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const api = createApi({
   reducerPath: "global",
   baseQuery: fetchBaseQuery({
-    baseUrl: import.meta.env.VITE_HOST_URL,
+    baseUrl: VITE_HOST_URL,
     prepareHeaders: (headers) => {
       headers.set("X-RapidAPI-Key", import.meta.env.VITE_API_KEY);
 

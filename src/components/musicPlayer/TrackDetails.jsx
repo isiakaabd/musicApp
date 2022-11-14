@@ -12,7 +12,10 @@ const TrackDetails = ({ images, title, subtitle }) => {
       </div>
 
       <div className="flex-1 overflow-hidden">
-        <p className="text-sm font-bold overflow-hidden truncate ...">
+        <p
+          className="text-sm font-bold overflow-hidden truncate ..."
+          title={title}
+        >
           {title}
         </p>
         <p className="text-xs font-bold text-white/[.44]">{subtitle}</p>
