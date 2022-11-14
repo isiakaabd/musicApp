@@ -2,8 +2,9 @@ import { SearchBar, AlbumCard, AlbumItem, Footer } from "../components";
 import image1 from "/image-1.png";
 import image2 from "/image-2.png";
 import image3 from "/image-3.png";
-
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useGetAllSongsQuery } from "../api";
 
 const Album = () => {
   const arr = [
@@ -42,7 +43,8 @@ const Album = () => {
   const [state, setState] = useState(arr[0]);
 
   const { title, subtitle, image } = state;
-  console.log("i");
+  const { activeSong, isPlaying } = useSelector((state) => state.fetchMusic);
+  const { data } = useGetAllSongsQuery();
   return (
     <div className="w-full flex flex-col gap-4 bg-album">
       <SearchBar placeholder="Search artists" />
@@ -50,7 +52,9 @@ const Album = () => {
       {arr.map((item) => (
         <AlbumItem key={item.duration} item={item} setState={setState} />
       ))}
-      <Footer subtitle={subtitle} name={title} photo={image} />
+      {activeSong.title && (
+        <Footer activeSong={activeSong} allSongs={data} isPlaying={isPlaying} />
+      )}
     </div>
   );
 };

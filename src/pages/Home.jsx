@@ -2,21 +2,17 @@ import {
   PlayListCard,
   SearchBar,
   TopChartCard,
-  Sidebar,
   Search,
   Release,
   Footer,
 } from "../components";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useGetAllSongsQuery } from "../api";
 
 const Home = () => {
-  const { data, isFetching, error } = useGetAllSongsQuery();
+  const { data, isFetching } = useGetAllSongsQuery();
   const { activeSong, isPlaying } = useSelector((state) => state.fetchMusic);
-  const f = useSelector((state) => state["api.reducerPath"]);
-  const fd = useSelector((state) => console.log(state));
-  console.log(f);
-  console.log(data);
+
   const topCard = data?.slice(0, 3);
   if (isFetching) return <h2 className="text-xs text-center">Loading..</h2>;
   return (

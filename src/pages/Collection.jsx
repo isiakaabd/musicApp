@@ -3,9 +3,12 @@ import { useState } from "react";
 import music from "/collect.png";
 import collect from "/collect2.png";
 import collect2 from "/collect3.png";
+import { useGetAllSongsQuery } from "../api";
+import { useSelector } from "react-redux";
 const Collection = () => {
   const [toggleState, setToggleState] = useState(true);
-
+  const { activeSong, isPlaying } = useSelector((state) => state.fetchMusic);
+  const { data } = useGetAllSongsQuery();
   return (
     <div className="w-full flex flex-col gap-4">
       <SearchBar placeholder="Search artists" />
@@ -32,7 +35,9 @@ const Collection = () => {
       ) : (
         <p className="text-bold">Nothing Available here</p>
       )}
-      <Footer subtitle={"Obi datti"} name={"Closa ~ Ybee"} photo={music} />
+      {activeSong.title && (
+        <Footer activeSong={activeSong} allSongs={data} isPlaying={isPlaying} />
+      )}
     </div>
   );
 };
