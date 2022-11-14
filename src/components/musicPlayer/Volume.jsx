@@ -1,13 +1,19 @@
 import VolumeOff from "../../assets/images/VolumeOff";
 import VolumeUp from "../../assets/images/VolumeUp";
+import VolumeUpSmall from "../../assets/images/VolumeUpSmall";
 
 const VolumeBar = ({ value, min, max, setVolume }) => {
   return (
     <div className="flex justify-between items-center gap-4 transition-all duration-100">
-      {value > 0 ? (
+      {value > 0.5 || value == 1 ? (
         <VolumeUp
           className="h-8 w-8 fill-white duration-100"
           onClick={() => setVolume(0)}
+        />
+      ) : value > 0 && value < 0.5 ? (
+        <VolumeUpSmall
+          className="h-8 w-8 fill-white duration-100"
+          onClick={() => setVolume(1)}
         />
       ) : (
         <VolumeOff
@@ -22,11 +28,12 @@ const VolumeBar = ({ value, min, max, setVolume }) => {
         id=""
         step="any"
         style={{
-          background: `linear-gradient(to right, #FACD66 0%, #FACD66 ${
-            value * 100
-          }%, transparent ${value * 100}%, transparent 100%)`,
-          height: "4px",
+          //   background: `linear-gradient(to right, #FACD66 0%, #FACD66 ${
+          //     value * 100
+          //   }%, transparent ${value * 100}%, transparent 100%)`,
+          height: "8px",
           border: `2px solid inherit`,
+          borderRadius: "20px",
 
           background: `linear-gradient(to right, #FACD66 0%, #FACD66 ${
             value * 100

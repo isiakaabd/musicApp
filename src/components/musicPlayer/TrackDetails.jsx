@@ -20,7 +20,7 @@ const TrackDetails = ({ images, title, subtitle }) => {
     </div>
   );
 };
-TrackDetails.PropTypes = {
+TrackDetails.propTypes = {
   name: PropTypes.string,
   title: PropTypes.string,
   subtitle: PropTypes.string,

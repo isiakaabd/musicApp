@@ -11,9 +11,9 @@ import Player from "./musicPlayer/Player";
 import VolumeBar from "./musicPlayer/Volume";
 import TrackDetails from "./musicPlayer/TrackDetails";
 import { useDispatch } from "react-redux";
-import { setPlayPause } from "../store/reducers/musicReducer";
+import { setPlayPause, nextSong } from "../store/reducers/musicReducer";
 
-const Footer = ({ activeSong, isPlaying }) => {
+const Footer = ({ activeSong, isPlaying, allSongs }) => {
   const { title, subtitle, url, images, ...rest } = activeSong;
   const [duration, setDuration] = useState(0);
   const [seekTime, setSeekTime] = useState(0);
@@ -29,6 +29,9 @@ const Footer = ({ activeSong, isPlaying }) => {
     // setValue(props);
   }
 
+  //  useEffect(() => {
+  //    if (allSongs.length) dispatch(setPlayPause(true));
+  //  }, [currentIndex]);
   return (
     <footer
       className="fixed z-[9999999]  flex px-6 lg:px-[80px] gap-3 justify-between bottom-0 left-0 right-0 backdrop-blur-lg py-1"
@@ -67,7 +70,11 @@ const Footer = ({ activeSong, isPlaying }) => {
                 />
               </div>
             </div>
-            <Next />
+            <Next
+              onClick={() =>
+                dispatch(nextSong(Math.floor(Math.random() * allSongs.length)))
+              }
+            />
             <Repeat className=" hidden md:block" />
           </div>
         </div>
@@ -90,10 +97,8 @@ const Footer = ({ activeSong, isPlaying }) => {
   );
 };
 Footer.propTypes = {
-  name: propTypes.string.isRequired,
-  subtitle: propTypes.string.isRequired,
-  photo: propTypes.node.isRequired,
-  playValue: propTypes.number,
+  activeSong: propTypes.object.isRequired,
+  isPlaying: propTypes.bool.isRequired,
 };
 
 export default Footer;

@@ -2,14 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { setActiveSong } from "../store/reducers/musicReducer";
 import { ReactComponent as Heart } from "/src/assets/images/Heart-fill.svg";
 
-const TopChartCard = ({ song }) => {
+const TopChartCard = ({ song, data }) => {
   const { images, title, subtitle, url } = song;
 
   const dispatch = useDispatch();
   return (
     <div
       className=" text-white bg-dark flex cursor-pointer justify-between over-flow:hidden  p-4 rounded-lg"
-      onClick={() => dispatch(setActiveSong(song))}
+      onClick={() => dispatch(setActiveSong({ song, data }))}
     >
       <div className="flex gap-4 sm:gap-2  w-[200px] md:w-[300px] lg:max-w-[80%]   flex-col lg:flex-row ">
         <img

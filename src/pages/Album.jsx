@@ -42,7 +42,7 @@ const Album = () => {
   const [state, setState] = useState(arr[0]);
 
   const { title, subtitle, image } = state;
-
+  console.log("i");
   return (
     <div className="w-full flex flex-col gap-4 bg-album">
       <SearchBar placeholder="Search artists" />
