@@ -3,8 +3,11 @@ import image1 from "/image-1.png";
 import image2 from "/image-2.png";
 import image3 from "/image-3.png";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useGetAllSongsQuery } from "../api";
+import { useEffect } from "react";
+import { activeIcon } from "../store/reducers/musicReducer";
+import MusicPlayer from "../components/musicPlayer";
 
 const Album = () => {
   const arr = [
@@ -44,7 +47,11 @@ const Album = () => {
 
   const { title, subtitle, image } = state;
   const { activeSong, isPlaying } = useSelector((state) => state.fetchMusic);
+  const dispatch = useDispatch();
   const { data } = useGetAllSongsQuery();
+  useEffect(() => {
+    dispatch(activeIcon(1));
+  }, []);
   return (
     <div className="w-full flex flex-col gap-4 bg-album">
       <SearchBar placeholder="Search artists" />
@@ -53,7 +60,11 @@ const Album = () => {
         <AlbumItem key={item.duration} item={item} setState={setState} />
       ))}
       {activeSong.title && (
-        <Footer activeSong={activeSong} allSongs={data} isPlaying={isPlaying} />
+        <MusicPlayer
+          activeSong={activeSong}
+          allSongs={data}
+          isPlaying={isPlaying}
+        />
       )}
     </div>
   );

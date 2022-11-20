@@ -11,16 +11,19 @@ const VolumeBar = ({ value, min, max, setVolume }) => {
           size={20}
           className="h-8 w-8 fill-white duration-100"
           onClick={() => setVolume(0)}
+          title="volume-full"
         />
       ) : value > 0 && value <= 0.5 ? (
         <BsVolumeDownFill
           size={20}
+          title="volume-up"
           className="h-8 w-8 fill-white duration-100"
           onClick={() => setVolume(1)}
         />
       ) : (
         <BsFillVolumeMuteFill
           size={20}
+          title="mute"
           className="h-8 w-8 fill-white"
           onClick={() => setVolume(0.5)}
         />
@@ -45,6 +48,7 @@ const VolumeBar = ({ value, min, max, setVolume }) => {
         max={max}
         className="transition-all ease-in-out"
         onChange={(e) => setVolume(e.target.value)}
+        title="volume"
       />
     </div>
   );

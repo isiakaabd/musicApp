@@ -14,6 +14,7 @@
     cursor: pointer;
   }
 }
+
 @layer base {
   /* --color:var() */
   input[type="range"] {

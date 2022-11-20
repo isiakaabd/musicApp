@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FiSearch } from "react-icons/fi";
 import { VscChromeClose } from "react-icons/vsc";
 import { menuIcons } from "../utilities";
-import { activeIcon } from "../store/reducers/musicReducer";
+import { activeIcon, searchDisplay } from "../store/reducers/musicReducer";
 const MobileNav = () => {
   const [state, setState] = useState(false);
   const { isActiveState } = useSelector((state) => state.fetchMusic);
@@ -14,7 +14,7 @@ const MobileNav = () => {
 
   return (
     <>
-      <div className="flex justify-between mb-4 overflow-y-hidden shadow-2xl relative">
+      <div className="flex  justify-between mb-4 overflow-y-hidden shadow-2xl ">
         <div className="flex gap-4 items-center">
           <HiMenuAlt4
             className="h-5 fill-[#EFEEE0]"
@@ -22,20 +22,24 @@ const MobileNav = () => {
           />
           <Logo className="h-5" />
         </div>
-        {!state ? (
-          <FiSearch className="h-5" />
-        ) : (
+        {/* {!state ? ( */}
+
+        <FiSearch
+          className="h-5 transition-all ease-in-out"
+          onClick={() => dispatch(searchDisplay())}
+        />
+      </div>
+      <div
+        className={`absolute  smooth-transition transition-all p-4 duration-200  ease-in-out inset-0 z-50 ${
+          state ? "translate-x-0" : "translate-x-[-1000px]"
+        } h-screen  bg-dark  overflow-hidden`}
+      >
+        <div className="flex justify-end">
           <VscChromeClose
             className="h-5 z-[1000] text-[#EFEEE0] fill-[#EFEEE0] transition-all duration-200 ease-in-out"
             onClick={() => setState(false)}
           />
-        )}
-      </div>
-      <div
-        className={`absolute smooth-transition transition-all duration-200  ease-in-out inset-0 z-50 ${
-          state ? "translate-x-0" : "translate-x-[-1000px]"
-        } max-h-screen  bg-dark  overflow-hidden`}
-      >
+        </div>
         <nav
           role="navigation"
           arial-label="secondary-navigation"

@@ -19,7 +19,7 @@ const Release = () => {
                   src={images?.coverart}
                   alt={`image of ${title}`}
                   className="rounded-[25px] mb-2 cursor-pointer"
-                  onClick={() => dispatch(setActiveSong({ song, data }))}
+                  onClick={() => dispatch(setActiveSong({ song, data, index }))}
                 />
 
                 <div className="flex items-center justify-between gap-4">

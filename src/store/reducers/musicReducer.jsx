@@ -10,6 +10,7 @@ export const dataSlice = createSlice({
     activeSong: {},
     genreListId: "",
     isActiveState: 0,
+    display: false,
   },
 
   reducers: {
@@ -24,7 +25,7 @@ export const dataSlice = createSlice({
       // }
 
       state.currentSongs = action.payload.data;
-      // state.currentIndex = action.payload.i;
+      state.currentIndex = action.payload.index;
       state.isActive = true;
       state.isPlaying = true;
     },
@@ -35,6 +36,7 @@ export const dataSlice = createSlice({
       // if (state.currentSongs[action.payload]?.track) {
       state.activeSong = state.currentSongs[action.payload];
       // }
+      state.currentIndex = action.payload;
       state.isActive = true;
       // state.currentSongs
     },
@@ -42,10 +44,14 @@ export const dataSlice = createSlice({
       state.activeSong = state.currentSongs[action.payload];
 
       state.isActive = true;
+      state.currentIndex = action.payload;
       // state.currentSongs
     },
     activeIcon(state, action) {
       state.isActiveState = action.payload;
+    },
+    searchDisplay(state) {
+      state.display = !state.display;
     },
   },
 });
@@ -57,5 +63,6 @@ export const {
   setPlayPause,
   previousSong,
   nextSong,
+  searchDisplay,
 } = actions;
 export default reducer;

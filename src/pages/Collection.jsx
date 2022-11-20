@@ -1,14 +1,20 @@
 import { Button, SearchBar, CollectionCard, Footer } from "../components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import music from "/collect.png";
 import collect from "/collect2.png";
 import collect2 from "/collect3.png";
 import { useGetAllSongsQuery } from "../api";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { activeIcon } from "../store/reducers/musicReducer";
+import MusicPlayer from "../components/musicPlayer";
 const Collection = () => {
   const [toggleState, setToggleState] = useState(true);
   const { activeSong, isPlaying } = useSelector((state) => state.fetchMusic);
   const { data } = useGetAllSongsQuery();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(activeIcon(2));
+  }, []);
   return (
     <div className="w-full flex flex-col gap-4">
       <SearchBar placeholder="Search artists" />
@@ -36,7 +42,11 @@ const Collection = () => {
         <p className="text-bold">Nothing Available here</p>
       )}
       {activeSong.title && (
-        <Footer activeSong={activeSong} allSongs={data} isPlaying={isPlaying} />
+        <MusicPlayer
+          activeSong={activeSong}
+          allSongs={data}
+          isPlaying={isPlaying}
+        />
       )}
     </div>
   );

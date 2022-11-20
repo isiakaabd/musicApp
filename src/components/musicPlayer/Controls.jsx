@@ -19,34 +19,35 @@ import {
   BsFillPlayFill,
   BsShuffle,
 } from "react-icons/bs";
+import { RiRepeat2Fill, RiRepeatOneFill } from "react-icons/ri";
 
-const Controls = ({ repeat, setDuration, setAppTime, seekTime, volume }) => {
-  const dispatch = useDispatch();
-  const { data } = useGetAllSongsQuery();
-  const { isPlaying, isActive, activeSong } = useSelector(
-    (state) => state.fetchMusic
-  );
-  const handleNext = () => {
-    dispatch(setPlayPause(false));
-    dispatch(nextSong(Math.floor(Math.random() * data.length)));
-  };
-  const handlePrevious = () => {
-    dispatch(setPlayPause(false));
-    dispatch(previousSong(Math.floor(Math.random() * data.length)));
-  };
-  const handlePausePlay = () => {
-    if (!isActive) return;
-    if (isPlaying) {
-      dispatch(setPlayPause(false));
-    } else {
-      dispatch(setPlayPause(true));
-    }
-  };
+const Controls = ({
+  shuffle,
+  setDuration,
+  setAppTime,
+  seekTime,
+  handlePausePlay,
+  handleNext,
+  handlePrevious,
+  setShuffle,
+  volume,
+  setRepeat,
+  repeat,
+}) => {
+  const { isPlaying, activeSong } = useSelector((state) => state.fetchMusic);
+
   return (
     <div className="flex items-center gap-6 justify-between">
-      <BsShuffle size={30} className="hidden md:block" />
+      <BsShuffle
+        title="shuffle"
+        color={shuffle ? "#facd66" : "#fff"}
+        onClick={() => setShuffle(!shuffle)}
+        size={30}
+        className="hidden md:block"
+      />
       <MdSkipPrevious
         size={30}
+        title="previous"
         className=" hidden md:block"
         onClick={handlePrevious}
       />
@@ -55,10 +56,12 @@ const Controls = ({ repeat, setDuration, setAppTime, seekTime, volume }) => {
           <BsFillPauseFill
             className="h-12 w-12 fill-mainYellow"
             onClick={handlePausePlay}
+            title="pause"
           />
         ) : (
           <BsFillPlayFill
             size={30}
+            title="play"
             className="h-12 w-12 fill-mainYellow"
             onClick={handlePausePlay}
           />
@@ -77,8 +80,24 @@ const Controls = ({ repeat, setDuration, setAppTime, seekTime, volume }) => {
           />
         </div>
       </div>
-      <MdSkipNext size={30} onClick={handleNext} />
-      <BsArrowRepeat size={30} className=" hidden md:block" />
+      <MdSkipNext size={30} onClick={handleNext} title="next" />
+      {repeat ? (
+        <RiRepeatOneFill
+          size={30}
+          className=" hidden md:block"
+          color={repeat ? "#facd66" : "#fff"}
+          onClick={() => setRepeat(!repeat)}
+          title="no-repeat"
+        />
+      ) : (
+        <RiRepeat2Fill
+          size={30}
+          title="repeat-one"
+          className=" hidden md:block"
+          color={repeat ? "#facd66" : "#fff"}
+          onClick={() => setRepeat(!repeat)}
+        />
+      )}
     </div>
   );
 };

@@ -1,21 +1,23 @@
 import propTypes from "prop-types";
 import { useState, useEffect } from "react";
-import VolumeBar from "./musicPlayer/Volume";
-import TrackDetails from "./musicPlayer/TrackDetails";
+
+import TrackDetails from "./TrackDetails";
 import { useDispatch, useSelector } from "react-redux";
-import Controls from "./musicPlayer/Controls";
-import PlayBar from "./musicPlayer/PlayBar";
+import Controls from "./Controls";
+import PlayBar from "./PlayBar";
+import VolumeBar from "./Volume";
 import {
   nextSong,
   previousSong,
   setPlayPause,
-} from "../store/reducers/musicReducer";
-import { useGetAllSongsQuery } from "../api";
+} from "../../store/reducers/musicReducer";
+import { useGetAllSongsQuery } from "../../api";
 
-const Footer = () => {
+const MusicPlayer = () => {
   const { currentIndex, activeSong, isActive, isPlaying } = useSelector(
     (state) => state.fetchMusic
   );
+
   const { data } = useGetAllSongsQuery();
   const { title, subtitle, url, images, ...rest } = activeSong;
   const [duration, setDuration] = useState(0);
@@ -23,6 +25,7 @@ const Footer = () => {
   const [appTime, setAppTime] = useState(0);
   const [volume, setVolume] = useState(0.3);
   const [shuffle, setShuffle] = useState(false);
+  const [repeat, setRepeat] = useState(false);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -69,6 +72,8 @@ const Footer = () => {
             handleNext={handleNext}
             handlePrevious={handlePrevious}
             handlePausePlay={handlePausePlay}
+            repeat={repeat}
+            setRepeat={setRepeat}
           />
         </div>
         <PlayBar
@@ -84,9 +89,9 @@ const Footer = () => {
     </footer>
   );
 };
-Footer.propTypes = {
+MusicPlayer.propTypes = {
   activeSong: propTypes.object.isRequired,
   isPlaying: propTypes.bool.isRequired,
 };
 
-export default Footer;
+export default MusicPlayer;

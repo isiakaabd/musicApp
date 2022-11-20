@@ -20,6 +20,7 @@ const PlayBar = ({ value, setAppTime, setSeekTime, max }) => {
         name="range"
         className="hidden lg:block"
         id="music-slider"
+        title="music-track"
       />
     </div>
   );

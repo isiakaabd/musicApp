@@ -3,14 +3,13 @@ import { useRef, useEffect } from "react";
 
 const Player = ({
   activeSong,
-
+  repeat,
   isPlaying,
   volume,
   seekTime,
   onEnded,
   onTimeUpdate,
   onLoadedData,
-  repeat,
 }) => {
   const ref = useRef(null);
 
@@ -18,6 +17,10 @@ const Player = ({
   if (ref.current) {
     if (isPlaying) {
       ref.current.play();
+      // try {
+      // } catch (e) {
+      //   console.error(e);
+      // }
     } else {
       ref.current.pause();
     }

@@ -3,9 +3,9 @@ import Album from "./pages/Album";
 import Collection from "./pages/Collection";
 import Home from "./pages/Home";
 
-const ProjectRoutes = ({ uris }) => {
+const ProjectRoutes = () => {
   return (
-    <Routes>
+    <Routes className="mt-5">
       <Route path="/" element={<Home />} />
       <Route path="album" element={<Album />} />
       <Route path="collection" element={<Collection />} />
