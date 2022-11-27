@@ -22,17 +22,15 @@ const MobileNav = () => {
           />
           <Logo className="h-5" />
         </div>
-        {/* {!state ? ( */}
-
         <FiSearch
           className="h-5 transition-all ease-in-out"
           onClick={() => dispatch(searchDisplay())}
         />
       </div>
       <div
-        className={`absolute  smooth-transition transition-all p-4 duration-200  ease-in-out inset-0 z-50 ${
+        className={`absolute  transition-all p-4 duration-200  ease-in-out inset-0 z-50 ${
           state ? "translate-x-0" : "translate-x-[-1000px]"
-        } h-screen  bg-dark  overflow-hidden`}
+        } min-h-full h-screen  bg-dark  overflow-hidden`}
       >
         <div className="flex justify-end">
           <VscChromeClose

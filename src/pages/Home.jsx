@@ -9,11 +9,10 @@ import { useSelector } from "react-redux";
 import { useGetAllSongsQuery, useLazyGetSongsBySearchQuery } from "../api";
 import MusicPlayer from "../components/musicPlayer";
 import { useState, useEffect } from "react";
-import SearchMusic from "../components/SearchMusic";
 
 const Home = () => {
   const { data, isFetching } = useGetAllSongsQuery();
-  const [fetch, { data: dt, error, isLoading }] =
+  const [fetch, { data: dt, error, isFetching: fetching }] =
     useLazyGetSongsBySearchQuery();
   const { activeSong, isPlaying, display } = useSelector(
     (state) => state.fetchMusic
@@ -22,7 +21,6 @@ const Home = () => {
   const songs = dt?.tracks?.hits.map((song) => song.track);
 
   const [value, setValue] = useState("");
-  console.log(songs);
   useEffect(() => {
     const handler = (e) => {
       if (e.keyCode === 13) {
@@ -30,7 +28,6 @@ const Home = () => {
         if (window.location.pathname === "/") {
           e.preventDefault();
           fetch(value);
-          setValue("");
         }
       }
     };
@@ -54,6 +51,9 @@ const Home = () => {
         setValue={setValue}
         placeholder="Search here"
         display={display}
+        songs={songs}
+        error={error}
+        loading={fetching}
       />
       <div className="flex flex-1 flex-wrap lg:max-h-[450px] lg:flex-nowrap gap-8">
         <div className="w-full lg:w-[65%]">
@@ -62,7 +62,7 @@ const Home = () => {
         <div className="w-full lg:w-[35%] lg:max-h-[450px]">
           <p className="text-[#EFEEE0] text-2xl font-bold mb-2">Top Charts</p>
           <div className="lg:max-h-full overflow-y-auto">
-            <div className="flex lg:flex-col   overflow-y-auto lg:overflow-x-hidden pb-4  gap-4">
+            <div className="flex lg:flex-col   overflow-y-auto hide-scrollbar lg:overflow-x-hidden pb-4  gap-4">
               {isFetching ? (
                 <h2 className="text-xs text-center">Loading..</h2>
               ) : topCard?.length > 0 ? (
@@ -83,7 +83,7 @@ const Home = () => {
         <p className="text-[#EFEEE0] text-2xl font-bold mb-2">Your Search</p>
         <SearchComponent songs={songs} />
       </div>
-      {activeSong.title && (
+      {activeSong?.title && (
         <MusicPlayer
           activeSong={activeSong}
           allSongs={data}

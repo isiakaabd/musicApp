@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
 
-const TrackDetails = ({ images, title, subtitle }) => {
+const TrackDetails = ({ images, max, title, subtitle }) => {
+  const getTime = (time) =>
+    `${Math.floor(time / 60)}:${`0${Math.floor(time % 60)}`.slice(-2)}`;
+
   return (
     <div className="flex w-[65%] md:max-w-[300px]  gap-3 items-center justify-between">
       <div className="h-12 w-12">
@@ -19,6 +22,7 @@ const TrackDetails = ({ images, title, subtitle }) => {
           {title}
         </p>
         <p className="text-xs font-bold text-white/[.44]">{subtitle}</p>
+        <p className="text-white">{max === 0 ? "0:00" : getTime(max)}</p>
       </div>
     </div>
   );

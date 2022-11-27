@@ -6,7 +6,7 @@ import { useState } from "react";
 const App = () => {
   const [displaySearch, setDisplaySearch] = useState(false);
   return (
-    <main className="flex relative gap-8 bg-main  p-4 md:p-6 text-3xl w-full text-white font-body min-h-screen">
+    <main className="flex flex-col lg:flex-row relative gap-8 bg-main  p-4 md:p-6 text-3xl w-full text-white font-body min-h-screen">
       <BrowserRouter>
         <Sidebar />
         <section className="w-full lg:w-[calc(100%-4em)]">

@@ -1,4 +1,10 @@
-import { Button, SearchBar, CollectionCard, Footer } from "../components";
+import {
+  Button,
+  SearchBar,
+  CollectionCard,
+  Footer,
+  LikeMusic,
+} from "../components";
 import { useState, useEffect } from "react";
 import music from "/collect.png";
 import collect from "/collect2.png";
@@ -9,7 +15,9 @@ import { activeIcon } from "../store/reducers/musicReducer";
 import MusicPlayer from "../components/musicPlayer";
 const Collection = () => {
   const [toggleState, setToggleState] = useState(true);
-  const { activeSong, isPlaying } = useSelector((state) => state.fetchMusic);
+  const { activeSong, isPlaying, likes } = useSelector(
+    (state) => state.fetchMusic
+  );
   const { data } = useGetAllSongsQuery();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -38,8 +46,10 @@ const Collection = () => {
           <CollectionCard img={collect} />
           <CollectionCard img={collect2} />
         </div>
-      ) : (
+      ) : likes?.length == 0 ? (
         <p className="text-bold">Nothing Available here</p>
+      ) : (
+        <LikeMusic />
       )}
       {activeSong.title && (
         <MusicPlayer

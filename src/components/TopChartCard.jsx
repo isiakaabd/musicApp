@@ -1,10 +1,11 @@
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveSong } from "../store/reducers/musicReducer";
 import { ReactComponent as Heart } from "/src/assets/images/Heart-fill.svg";
 
 const TopChartCard = ({ song, data }) => {
   const { images, title, subtitle, url } = song;
-
+  const [fill, setFill] = useState(false);
   const dispatch = useDispatch();
   return (
     <div className=" text-white bg-dark flex justify-between over-flow:hidden  p-4 rounded-lg">
@@ -23,7 +24,13 @@ const TopChartCard = ({ song, data }) => {
         </div>
       </div>
       <div className="p-2 border self-center rounded-full border-white/[0.11] ">
-        <Heart className="h-6 w-6 cursor-pointer " />
+        <Heart
+          color="#ff0"
+          fill="yellow"
+          className={`h-6 w-6 ${fill ? "fill-mainYellow" : "fill-none"}`}
+          onClick={() => setFill(!fill)}
+          // className="h-6 w-6 cursor-pointer fill-red-500"
+        />
       </div>
     </div>
   );

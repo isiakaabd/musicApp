@@ -10,3 +10,5 @@ export { default as AlbumItem } from "./AlbumItem";
 export { default as Button } from "./Button";
 export { default as CollectionCard } from "./CollectionCard";
 export { default as MobileNav } from "./MobileNav";
+export { default as SongCard } from "./SongCard";
+export { default as LikeMusic } from "./LikeMusic";
