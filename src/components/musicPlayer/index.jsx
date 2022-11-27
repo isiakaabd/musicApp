@@ -59,7 +59,13 @@ const MusicPlayer = () => {
       className="fixed z-[9999999]  flex px-6  py-5 lg:px-[80px] gap-3 justify-between bottom-0 left-0 right-0 backdrop-blur-lg "
       {...rest}
     >
-      <TrackDetails images={images} title={title} subtitle={subtitle} />
+      <TrackDetails
+        images={images}
+        title={title}
+        subtitle={subtitle}
+        max={duration}
+        value={appTime}
+      />
       <div className=" flex-auto   flex justify-between flex-col">
         <div className="flex justify-center  items-center ">
           <Controls

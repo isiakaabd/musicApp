@@ -1,16 +1,13 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // VITE_API_KEY=
-// VITE_HOST_URL =
+// =
 export const api = createApi({
   reducerPath: "global",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://shazam-core.p.rapidapi.com/v1",
+    baseUrl: VITE_HOST_URL,
     prepareHeaders: (headers) => {
-      headers.set(
-        "X-RapidAPI-Key",
-        "a02a9dc12dmshab76ffd99bfea9cp161102jsn96cd4da1db1f"
-      );
-      // import.meta.env.VITE_API_KEY);
+      headers.set("X-RapidAPI-Key", import.meta.env.VITE_API_KEY);
+      //);
 
       return headers;
     },
